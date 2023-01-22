@@ -3,6 +3,10 @@
   cursor: pointer;
 }
 
+.bi-star-fill {
+  color: tomato;
+}
+
 .btn-tomato {
   background-color: tomato;
 }
@@ -92,7 +96,7 @@
   max-height: 18vw;
 }
 
-.main-container-cards-superhost {
+.main-container-cards-superhost {
   font-size: small;
 }
 
