@@ -30,6 +30,25 @@
 }
 
 @media (max-width: 600px) {
+  .header-menu-container-cards {
+    flex-direction: column;
+  }
+
+  .header-menu-container-cards-container-location {
+    border: 1px solid rgb(210, 209, 209) !important;
+    border-bottom: 0 !important;
+    border-radius: 10px 10px 0 0 !important;
+  }
+
+  .header-menu-container-cards-container-guests {
+    border: 1px solid rgb(210, 209, 209) !important;
+    border-radius: 0 0 10px 10px !important;
+  }
+
+  .header-menu-container-cards-container-search {
+    display: none !important;
+  }
+
   .header-bar-container {
     gap: 2rem
   }
@@ -37,6 +56,13 @@
   .header-bar-container-search-container{
     justify-content: center !important;
     /* margin: 0 1rem !important; */
+  }
+}
+
+@media (min-width: 600px) {
+  .header-menu-container-cards-container-search-sm,
+  .header-menu-container-options {
+    display: none !important;
   }
 }
 

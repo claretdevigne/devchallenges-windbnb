@@ -59,16 +59,20 @@ export default function Header() {
 		{
 			(data.showMenu) ?
 			<div className='header-menu-container bg-white pt-3 m-0 w-100'>
+				<div className='header-menu-container-options mx-3 mb-3 d-flex justify-content-between fw-bold'>
+					<div>Edit your search</div>
+					<i onClick={ () => dispatch(SET_SHOW_MENU(false)) } class="bi bi-x-lg"></i>
+				</div>
 				<div className='header-menu-container-cards d-flex mx-5'>
-				  <div onClick={() => dispatch(SET_SHOW_SUBMENU('cities'))} className='header-menu-container-cards-container pointer col d-flex flex-column justify-content-center p-2 px-4 mb-0 border border-end-0 rounded-start-4'>
+				  <div onClick={() => dispatch(SET_SHOW_SUBMENU('cities'))} className='header-menu-container-cards-container header-menu-container-cards-container-location pointer col d-flex flex-column justify-content-center p-2 px-4 mb-0 border border-end-0 rounded-start-4'>
 						<div className='header-menu-container-titles fw-bold'>Location</div>
 						<div className='text-muted'> { data.citySelected === null ? 'Add a city' : data.citySelected }</div>
 					</div>
-					<div onClick={() => dispatch(SET_SHOW_SUBMENU('guest'))} className='header-menu-container-cards-container col pointer d-flex flex-column justify-content-center p-2 px-4 mb-0 border border-end-0'>
+					<div onClick={() => dispatch(SET_SHOW_SUBMENU('guest'))} className='header-menu-container-cards-container header-menu-container-cards-container-guests col pointer d-flex flex-column justify-content-center p-2 px-4 mb-0 border border-end-0'>
 						<div className='header-menu-container-titles fw-bold'>Guests</div>
 						<div className='text-muted'> { (data.adultGuests === 0 && data.childrenGuests === 0) ? 'How many guests?' : data.totalGuests + ' guests' }</div>
 					</div>
-				  <div className='col d-flex p-2 border rounded-end-4'>
+				  <div className='col d-flex p-2 border rounded-end-4 header-menu-container-cards-container-search'>
 						<div className='col d-flex justify-content-center align-items-center'>
 							<button onClick={() => handleFilter()} className='btn btn-primary btn-tomato border-0'>Search</button>
 						</div>
@@ -90,6 +94,11 @@ export default function Header() {
 							</div>	
 							<div className='col'></div>	
 							<div className='col'></div>	
+						</div>
+						<div className='col d-flex p-2 header-menu-container-cards-container-search-sm mb-4'>
+							<div className='col d-flex justify-content-center align-items-center'>
+								<button onClick={() => handleFilter()} className='btn btn-primary btn-tomato border-0'>Search</button>
+							</div>
 						</div>
 					</div>
 					:
@@ -118,6 +127,11 @@ export default function Header() {
 							</div>	
 							<div className='col'></div>	
 						</div>
+						<div className='col d-flex p-2 header-menu-container-cards-container-search-sm mb-4'>
+							<div className='col d-flex justify-content-center align-items-center'>
+								<button onClick={() => handleFilter()} className='btn btn-primary btn-tomato border-0'>Search</button>
+							</div>
+						</div>
 					</div>
 				}
 
@@ -131,10 +145,10 @@ export default function Header() {
 				<img src={LOGO} alt="logo" />
 			</div>
 			<div className='header-bar-container-search-container col d-flex justify-content-end'>
-				<div className='header-bar-container-search-container d-flex shadow'>
+				<div className='header-bar-container-search-container d-flex rounded-2 shadow'>
 					<div className='border border-end-0 py-2 px-3 rounded-start-2'>{ (data.citySelected === null ) ? 'Finland' : `${data.citySelected}, Finland` }</div>
 					<div className='border py-2 px-2 d-flex align-content-center'>
-						<input className='header-bar-container-input' onClick={() => dispatch(SET_SHOW_MENU(true))} type="text" placeholder='Add guest'/>
+						<input className='header-bar-container-input w-100' onClick={() => dispatch(SET_SHOW_MENU(true))} type="text" placeholder='Add guest'/>
 					</div>
 					<div className='header-menu-container-cards-search-ico-container border border-start-0 py-2 px-3 rounded-end-2'>
 						<i className="bi bi-search"></i>
